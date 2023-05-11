@@ -1,8 +1,33 @@
 package ru.netology.radio;
 
 public class Radio {
+    private int minStation = 0;
+    private int quantityStations = 10;
+    private int maxStation = quantityStations - 1;
+
+    private int minVolume = 0;
+    private int maxVolume = 100;
     private int numberStation;
     private int volume;
+
+    public Radio() {
+    }
+
+    public Radio(int quantityStations) {
+        this.quantityStations = quantityStations;
+    }
+
+    public int getQuantityStations() {
+        return quantityStations;
+    }
+
+    public int getMinVolume() {
+        return minVolume;
+    }
+
+    public int getMaxVolume() {
+        return maxVolume;
+    }
 
     public int getNumberStation() {
         return numberStation;
@@ -13,7 +38,7 @@ public class Radio {
     }
 
     public void setNumberStation(int newNumberStation) {
-        if (newNumberStation > 9) {
+        if (newNumberStation > maxStation) {
             return;
         }
         if (newNumberStation < 0) {
@@ -23,7 +48,7 @@ public class Radio {
     }
 
     public void nextNumberStation() {
-        if (numberStation == 9) {
+        if (numberStation == maxStation) {
             setNumberStation(0);
         } else {
             numberStation++;
@@ -33,30 +58,30 @@ public class Radio {
 
     public void prevNumberStation() {
         if (numberStation == 0) {
-            setNumberStation(9);
+            setNumberStation(maxStation);
         } else {
             numberStation--;
         }
     }
 
     public void setVolume(int newVolume) {
-        if (newVolume < 0) {
+        if (newVolume < minVolume) {
             return;
         }
-        if (newVolume > 100) {
+        if (newVolume > maxVolume) {
             return;
         }
         volume = newVolume;
     }
 
     public void increaseVolume() {
-        if (volume < 100) {
+        if (volume < maxVolume) {
             setVolume(volume + 1);
         }
     }
 
     public void decreaseVolume() {
-        if (volume > 0) {
+        if (volume > minVolume) {
             setVolume(volume - 1);
         }
     }
