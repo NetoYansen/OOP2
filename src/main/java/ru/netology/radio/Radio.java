@@ -21,14 +21,6 @@ public class Radio {
         return quantityStations;
     }
 
-    public int getMinVolume() {
-        return minVolume;
-    }
-
-    public int getMaxVolume() {
-        return maxVolume;
-    }
-
     public int getNumberStation() {
         return numberStation;
     }
