@@ -15,6 +15,16 @@ public class RadioTest {
 
         Assertions.assertEquals(20, radio.getQuantityStations());
     }
+    @Test
+    public void test2() {
+        Radio radio = new Radio(20);
+        radio.setNumberStation(15);
+
+        int expected = 15;
+        int actual = radio.getNumberStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
 
     @Test
     public void nextStationTest() {
